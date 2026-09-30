@@ -1,157 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>견적문의 - 세종로합동법무사</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #1a365d; min-height: 100vh; padding: 40px 20px; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
-        input, textarea, button { font-family: inherit; letter-spacing: inherit; }
-        .form-container { max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
-        .form-header { background: #1a365d; color: #fff; padding: 30px; text-align: center; }
-        .form-brand { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 700; color: #dfe2e6; letter-spacing: 0.08em; margin-bottom: 4px; }
-        .form-header h1 { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; color: #C9A227; letter-spacing: 0.3em; margin-bottom: 10px; }
-        .form-header p { font-family: 'Noto Serif KR', serif; font-size: 11.5px; color: #dfe2e6; opacity: 0.8; letter-spacing: 0.01em; }
-        .form-body { padding: 30px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 600; color: #1a365d; margin-bottom: 8px; font-size: 14px; }
-        .form-group label .required { color: #e53e3e; margin-left: 2px; }
-        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group textarea { width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 15px; transition: border-color 0.3s, box-shadow 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1a365d; box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1); }
-        .form-group textarea { min-height: 120px; resize: vertical; }
-        .file-upload-area { border: 2px dashed #cbd5e0; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.3s; background: #f7fafc; }
-        .file-upload-area:hover { border-color: #1a365d; background: #edf2f7; }
-        .file-upload-area input[type="file"] { display: none; }
-        .file-upload-icon { font-size: 40px; color: #a0aec0; margin-bottom: 10px; }
-        .file-upload-text { color: #718096; font-size: 14px; }
-        .file-upload-text span { color: #1a365d; font-weight: 600; }
-        .file-list { margin-top: 15px; }
-        .file-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #edf2f7; border-radius: 6px; margin-bottom: 8px; font-size: 13px; }
-        .file-item-info { display: flex; align-items: center; gap: 8px; }
-        .file-item-icon { width: 32px; height: 32px; background: #1a365d; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: bold; }
-        .file-item-name { color: #2d3748; font-weight: 500; }
-        .file-item-size { color: #a0aec0; font-size: 12px; }
-        .file-remove { background: #e53e3e; border: none; color: #fff; cursor: pointer; font-size: 14px; padding: 6px 10px; border-radius: 4px; }
-        .file-remove:hover { background: #c53030; }
-        .inquiry-types { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .inquiry-type input { display: none; }
-        .inquiry-type label { display: block; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; text-align: center; cursor: pointer; font-weight: 500; }
-        .inquiry-type input:checked + label { border-color: #1a365d; background: #edf2f7; color: #1a365d; }
-        .submit-btn { width: 100%; padding: 16px; background: #1a365d; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26, 54, 93, 0.4); }
-        .privacy-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; font-size: 13px; color: #718096; }
-        .privacy-check input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: #1a365d; }
-        .contact-info { background: #f7fafc; border-radius: 8px; padding: 20px; margin-top: 20px; text-align: center; }
-        .contact-info p { color: #718096; font-size: 13px; margin-bottom: 5px; }
-        .contact-info strong { color: #1a365d; }
-        @media (max-width: 480px) { .inquiry-types { grid-template-columns: 1fr; } }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<title>법인설립 기본정보 확인서 · Incorporation Information Sheet</title>
+<style>
+:root{--font:"Noto Sans KR","Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;--fs-h1:24px;--fs-h2:18px;--fs-h3:16px;--fs-body:15px;--fs-sm:13px;--bg:#f6f7f9;--card:#fff;--fg:#1d2733;--mut:#5d6b7a;--line:#d5dbe3;--acc:#1f4e8c;--accbg:#eaf1fb}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--card:#1c2229;--fg:#e6eaef;--mut:#9aa7b5;--line:#33404d;--acc:#7fb0ee;--accbg:#22303f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 var(--fs-body)/1.65 var(--font);letter-spacing:-.01em;word-break:keep-all;overflow-wrap:break-word;-webkit-text-size-adjust:100%}
+main{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:var(--fs-h1);font-weight:700;line-height:1.3;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 12px}
+.intro{background:var(--accbg);border-radius:8px;padding:12px 14px;margin:16px 0;font-size:14px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin:16px 0}
+h2{font-size:var(--fs-h2);font-weight:700;line-height:1.4;margin:0 0 14px;color:var(--acc)}
+.f{margin:0 0 16px}
+label{display:block;font-weight:600}
+label small{display:block;font-size:var(--fs-sm);font-weight:400;color:var(--mut)}
+input,textarea,select{width:100%;margin-top:6px;padding:10px 12px;font:400 16px/1.5 var(--font);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+textarea{min-height:130px;resize:vertical}
+textarea.big{min-height:220px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);border-color:transparent}
+.intro,.note,.hint,.chk label{text-align:justify;text-justify:inter-character}
+.note{font-size:var(--fs-sm);color:var(--mut);margin:-4px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.off{border:1px dashed var(--line);border-radius:8px;padding:12px;margin:0 0 12px}
+.off h3{margin:0;font-size:var(--fs-h3);font-weight:600}
+.offh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.off .grid{grid-template-columns:1fr 1fr;gap:0 10px}
+.off .f{margin:0 0 10px}
+.off .x{all:unset;cursor:pointer;color:var(--mut);font-size:var(--fs-sm);padding:2px 8px;border:1px solid var(--line);border-radius:12px}
+.off input,.off textarea{padding:8px 10px}
+@media(max-width:420px){.off .grid{grid-template-columns:1fr}}
+.chk label{font-weight:400;display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.chk input{width:auto;margin-top:5px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+button{font:600 var(--fs-body)/1.4 var(--font);padding:11px 18px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+button.sec{background:transparent;color:var(--acc)}
+.hint{font-size:var(--fs-sm);color:var(--mut);margin-top:10px}
+</style>
 </head>
 <body>
-    <div class="form-container">
-        <div class="form-header">
-            <div class="form-brand">세종로합동법무사</div>
-            <h1>견적문의</h1>
-            <p>SeJongLaw Certified Judicial Scriveners Joint Office</p>
-        </div>
-        <div class="form-body">
-            <form id="inquiryForm" action="https://formspree.io/f/mbddvglj" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>문의 유형 <span class="required">*</span></label>
-                    <div class="inquiry-types">
-                        <div class="inquiry-type"><input type="radio" name="inquiryType" id="type1" value="법인등기" required><label for="type1">법인등기</label></div>
-                        <div class="inquiry-type"><input type="radio" name="inquiryType" id="type2" value="부동산등기"><label for="type2">부동산등기</label></div>
-                        <div class="inquiry-type"><input type="radio" name="inquiryType" id="type3" value="상속/증여"><label for="type3">상속/증여</label></div>
-                        <div class="inquiry-type"><input type="radio" name="inquiryType" id="type4" value="기타문의"><label for="type4">기타문의</label></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="name">이름 (회사명) <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="이름 또는 회사명을 입력하세요" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">연락처 <span class="required">*</span></label>
-                    <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">이메일</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">문의 내용 <span class="required">*</span></label>
-                    <textarea id="message" name="message" placeholder="문의하실 내용 작성 부탁드립니다." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>파일 첨부 <span style="font-weight:normal;color:#a0aec0">(PDF, PNG, JPG - 최대 10MB)</span></label>
-                    <div class="file-upload-area" id="dropZone">
-                        <div class="file-upload-icon">📎</div>
-                        <p class="file-upload-text">파일을 드래그하거나 <span>클릭하여 선택</span>하세요</p>
-                        <input type="file" id="fileInput" name="attachment" multiple accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.hwp">
-                    </div>
-                    <div class="file-list" id="fileList"></div>
-                </div>
-                <div class="privacy-check">
-                    <input type="checkbox" id="privacy" required>
-                    <label for="privacy">개인정보 수집 및 이용에 동의합니다.</label>
-                </div>
-                <button type="submit" class="submit-btn">견적문의 보내기</button>
-            </form>
-            <div class="contact-info">
-                <p>급한 문의는 전화로 연락주세요</p>
-                <p><strong>📞 02-318-8028</strong></p>
-                <p><strong>✉️ son@jonglaw.co.kr</strong></p>
-            </div>
-        </div>
-    </div>
-    <script>
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
-        const fileList = document.getElementById('fileList');
-        let uploadedFiles = [];
+<main>
+<h1>법인설립 기본정보 확인서</h1>
+<p class="sub">Information Sheet for Incorporation of a Korean Subsidiary</p>
+<div class="intro">한국 자회사 설립용 날인서류(정관, 발기인 결의서, 취임승낙서, 위임장 등) 작성에 필요한 기본정보입니다. 각 기재란에 적어 주신 뒤 맨 아래 버튼으로 회신해 주십시오. 칸은 내용에 맞게 늘어납니다.<br>
+This sheet collects the information needed to draft the signing documents for your Korean subsidiary. Fill in the fields and use the buttons at the bottom to return it.</div>
 
-        dropZone.addEventListener('click', () => fileInput.click());
-        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); });
-        dropZone.addEventListener('drop', (e) => { e.preventDefault(); addFiles(e.dataTransfer.files); });
-        fileInput.addEventListener('change', () => { addFiles(fileInput.files); fileInput.value = ''; });
+<form id="f" autocomplete="off">
+<section>
+<h2>Ⅰ. 발기인(해외법인) · Promoter (Foreign Parent Company)</h2>
+<div class="f"><label>1-1 법인명 (정식 영문 명칭) <small>Legal name</small><input name="1-1 Legal name"></label></div>
+<div class="f"><label>1-2 설립 국가 <small>Country of incorporation</small><input name="1-2 Country of incorporation"></label></div>
+<div class="f"><label>1-3 법인등록번호 (본국 기준) <small>Company registration number</small><input name="1-3 Company registration number"></label></div>
+<div class="f"><label>1-4 본점 주소 <small>Registered address</small><textarea name="1-4 Registered address"></textarea></label></div>
+<div class="f"><label>1-5 대표자(서명권자) 성명·직위 <small>Authorized signatory &amp; title</small><input name="1-5 Authorized signatory and title"></label></div>
+<div class="f"><label>1-6 담당자 이메일·전화 <small>Contact (email / phone)</small><input name="1-6 Contact email/phone"></label></div>
+</section>
 
-        function addFiles(files) {
-            Array.from(files).forEach(file => {
-                if (file.size > 10 * 1024 * 1024) { alert(file.name + ' 파일이 너무 큽니다. (최대 10MB)'); return; }
-                if (!uploadedFiles.some(f => f.name === file.name)) uploadedFiles.push(file);
-            });
-            updateFileList();
-            updateFormData();
-        }
+<section>
+<h2>Ⅱ. 설립 법인 · Korean Company</h2>
+<div class="f"><label>2-1 상호 (국문, 후보 2~3개) <small>Company name in Korean (2–3 options)</small><textarea name="2-1 Korean name options"></textarea></label></div>
+<div class="f"><label>2-2 상호 (영문) <small>Company name in English</small><input name="2-2 English name"></label></div>
+<div class="f"><label>2-3 사업목적 <small>Business purposes</small><textarea class="big" name="2-3 Business purposes" style="min-height:200px" placeholder="예) 화장품 수출입 및 도매, 온라인 판매&#10;Ex) Import/export and wholesale of cosmetics, online sales"></textarea></label></div>
+<p class="note">※ 실제 영위할 업무를 간략하게 적어 주십시오. 세부 문구는 저희가 정관에 맞게 정리합니다. Briefly describe the business you actually plan to conduct; we will refine the wording for the Articles.</p>
+<div class="f"><label>2-4 본점 소재지 (동·호수까지) <small>Office address (incl. unit no.)</small><textarea name="2-4 Office address"></textarea></label></div>
+<div class="f"><label>2-5 임대차계약 체결 여부 <small>Office lease signed (Y/N)</small>
+<select name="2-5 Office lease signed"><option value="">선택 · Select</option><option>Y</option><option>N</option></select></label></div>
+<div class="grid">
+<div class="f"><label>2-6 자본금 (원) <small>Share capital (KRW)</small><input name="2-6 Share capital KRW" inputmode="numeric"></label></div>
+<div class="f"><label>2-8 해외법인 지분율 (%) <small>Parent's shareholding (%)</small><input name="2-8 Parent shareholding %" inputmode="decimal"></label></div>
+</div>
+<div class="f"><label>2-7 1주의 금액 / 발행주식 수 <small>Par value / Number of shares</small><input name="2-7 Par value / number of shares"></label></div>
+<p class="note">※ 외국인투자 요건: 투자금 1억원 이상, 의결권 있는 주식 10% 이상. FDI minimum: KRW 100 million and 10% or more of voting shares.</p>
+</section>
 
-        function removeFile(index) {
-            uploadedFiles.splice(index, 1);
-            updateFileList();
-            updateFormData();
-        }
+<section>
+<h2>Ⅲ. 예정 임원 · Proposed Officers</h2>
+<div id="officers"></div>
+<div class="btns"><button type="button" class="sec" id="addOff">+ 임원 추가 · Add officer</button></div>
+</section>
 
-        function updateFileList() {
-            fileList.innerHTML = uploadedFiles.map((file, i) => 
-                '<div class="file-item"><div class="file-item-info"><div class="file-item-icon">' + file.name.split('.').pop().toUpperCase().slice(0,3) + '</div><div><div class="file-item-name">' + file.name + '</div><div class="file-item-size">' + (file.size/1024/1024).toFixed(2) + ' MB</div></div></div><button type="button" class="file-remove" onclick="removeFile(' + i + ')">삭제</button></div>'
-            ).join('');
-        }
+<section>
+<h2>Ⅳ. 해외 준비 서류 · Documents to Prepare Abroad</h2>
+<p class="note">본국 서류는 발급 3개월 이내로, 아포스티유(비협약국은 한국 영사확인)를 받아 주십시오. 번역은 당사에서 진행합니다. Home-country documents must be issued within 3 months and apostilled (or legalized by a Korean consulate). We handle the Korean translation.</p>
+<div class="chk">
+<label><input type="checkbox" name="Doc: Certificate of Incorporation"> 설립증명서 또는 법인등기부 · Certificate of Incorporation</label>
+<label><input type="checkbox" name="Doc: Certificate of Incumbency"> 대표자 증명서 · Certificate of Incumbency</label>
+<label><input type="checkbox" name="Doc: Board resolution"> 이사회 결의서 (한국 법인 설립·투자 승인) · Board resolution approving the investment</label>
+<label><input type="checkbox" name="Doc: Passport copies"> 임원 여권 사본 · Passport copies of all officers</label>
+<label><input type="checkbox" name="Doc: Signing and notarization"> 당사 송부 날인서류의 서명·공증 · Signing and notarization of the documents we send</label>
+</div>
+<div class="f" style="margin-top:14px"><label>기타 요청·참고사항 <small>Remarks / questions</small><textarea class="big" name="Remarks"></textarea></label></div>
+</section>
 
-        function updateFormData() {
-            const dt = new DataTransfer();
-            uploadedFiles.forEach(file => dt.items.add(file));
-            fileInput.files = dt.files;
-        }
+<section>
+<h2>Ⅴ. 작성 확인 · Confirmation</h2>
+<div class="grid">
+<div class="f"><label>작성일 <small>Date</small><input type="date" name="Date"></label></div>
+<div class="f"><label>작성자 성명 <small>Name (typed signature)</small><input name="Name"></label></div>
+</div>
+</section>
 
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let v = e.target.value.replace(/[^0-9]/g, '');
-            if (v.length > 3 && v.length <= 7) v = v.slice(0,3) + '-' + v.slice(3);
-            else if (v.length > 7) v = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7,11);
-            e.target.value = v;
-        });
-    </script>
+<section>
+<h2>회신 · Submit</h2>
+<div class="btns">
+<button type="button" id="send">전송 · Submit</button>
+<button type="button" class="sec" id="dl">파일로 저장 · Download (.txt)</button>
+<button type="button" class="sec" id="cp">내용 복사 · Copy</button>
+</div>
+<p class="hint">「전송」을 누르면 작성 내용이 바로 담당자 메일로 전달됩니다. 전송이 되지 않으면 「파일로 저장」 후 <span id="to"></span> 로 첨부해 보내 주십시오.<br>Press Submit to send your answers directly to us. If it fails, download the file and email it to the address above.</p>
+<p id="status" class="hint" role="status" aria-live="polite" style="font-weight:600"></p>
+</section>
+</form>
+</main>
+<script>
+var KEY="85c21f5e-1d39-4825-9057-7fdd5c19fec6", /* Web3Forms 접근 키를 여기에 붙여넣기 */ TO="jlkim@jonglaw.co.kr", SUBJ="Information Sheet - Korean Subsidiary";
+document.getElementById("to").textContent=TO;
+var POS=["대표이사 · Representative Director","이사 · Director","이사 · Director","감사 (선택) · Auditor (optional)"];
+var offs=document.getElementById("officers");
+function addOff(t){var n=offs.children.length+1;var d=document.createElement("div");d.className="off";
+d.innerHTML='<div class="offh"><h3></h3><button type="button" class="x">삭제 · Remove</button></div><div class="grid"><div class="f" style="grid-column:1/-1"><label>직위 · Position<input data-k="Position"></label></div><div class="f" style="grid-column:1/-1"><label>성명 (여권상 영문) · Name as in passport<input data-k="Name"></label></div><div class="f"><label>국적 · Nationality<input data-k="Nationality"></label></div><div class="f"><label>생년월일 · Date of birth<input type="date" data-k="DOB"></label></div></div><div class="f"><label>주소 · Address<textarea data-k="Address" style="min-height:64px"></textarea></label></div>';
+d.querySelector('[data-k="Position"]').value=t||"";
+d.querySelector(".x").onclick=function(){if(offs.children.length>1){offs.removeChild(d);renum()}};
+offs.appendChild(d);renum()}
+function renum(){[].forEach.call(offs.children,function(o,i){o.querySelector("h3").textContent="임원 "+(i+1)+" · Officer "+(i+1)})}
+POS.forEach(function(t){addOff(t)});
+document.getElementById("addOff").onclick=function(){addOff("")};
+function build(){var f=document.getElementById("f"),L=[];
+L.push("Information Sheet for Incorporation of a Korean Subsidiary","");
+f.querySelectorAll("section").forEach(function(s){
+ var h=s.querySelector("h2").textContent;if(h.indexOf("회신")===0)return;L.push("== "+h+" ==");
+ if(s.querySelector("#officers")){offs.querySelectorAll(".off").forEach(function(o,i){L.push("[Officer "+(i+1)+"]");
+  o.querySelectorAll("[data-k]").forEach(function(e){L.push("  "+e.dataset.k+": "+e.value)});});}
+ s.querySelectorAll("input[name],textarea[name],select[name]").forEach(function(e){
+  if(e.type==="checkbox")L.push((e.checked?"[x] ":"[ ] ")+e.name.replace("Doc: ",""));
+  else L.push(e.name+": "+e.value)});
+ L.push("")});
+return L.join("\r\n")}
+document.getElementById("send").onclick=function(){
+ var b=this,st=document.getElementById("status"),co=document.querySelector('[name="1-1 Legal name"]').value.trim();
+ if(!KEY){st.textContent="전송 설정(접근 키)이 아직 입력되지 않았습니다. 「파일로 저장」 후 "+TO+" 로 보내 주세요.";return}
+ b.disabled=true;st.textContent="전송 중… · Sending…";
+ fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+  body:JSON.stringify({access_key:KEY,subject:SUBJ+(co?" - "+co:""),from_name:co||"Information Sheet",message:build()})})
+ .then(function(r){return r.text().then(function(t){var j;try{j=JSON.parse(t)}catch(e){j=null}return{s:r.status,j:j,t:t}})}).then(function(o){
+  if(o.j&&(o.j.success==="true"||o.j.success===true)){st.textContent="전송되었습니다. 감사합니다. · Sent. Thank you."}
+  else{throw new Error("HTTP "+o.s+" "+((o.j&&o.j.message)||o.t.replace(/<[^>]+>/g," ").replace(/\s+/g," ").slice(0,160)))}})
+ .catch(function(e){st.textContent="전송에 실패했습니다. 「파일로 저장」 후 "+TO+" 로 보내 주세요. · Failed. Please download the file and email it to "+TO+". [사유 · Reason: "+(e&&e.message||e)+"]"})
+ .then(function(){b.disabled=false})};
+document.getElementById("dl").onclick=function(){
+ var b=new Blob(["﻿"+build()],{type:"text/plain;charset=utf-8"});var a=document.createElement("a");
+ a.href=URL.createObjectURL(b);a.download="Information_Sheet.txt";a.click()};
+document.getElementById("cp").onclick=function(){var t=build();
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){alert("복사되었습니다 · Copied")},function(){alert("복사 실패: 파일로 저장을 이용해 주세요.")})};
+</script>
 </body>
 </html>
